@@ -1,8 +1,22 @@
 {
   "todos": [
     {
-      "content": "sdsd",
+      "title": "JavaScript",
+      "completed": false,
+      "userId": 8,
       "id": 1
+    },
+    {
+      "title": "HTML",
+      "completed": false,
+      "userId": 8,
+      "id": 2
+    },
+    {
+      "title": "CSS",
+      "completed": false,
+      "userId": 8,
+      "id": 3
     }
   ]
 }
