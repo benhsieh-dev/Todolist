@@ -1,13 +1,12 @@
 /* ~~~~~~~~~~~~~ Api ~~~~~~~~~~~~~ */
 export const Api = (() => {
-//   const baseUrl = 'https://jsonplaceholder.typicode.com';
   const baseUrl = 'http://localhost:3000';
   const todoPath = 'todos';
 
   const getTodos = () => fetch([baseUrl, todoPath].join('/'))
     .then((response) => response.json());
 
-  const addTodo = (newtodo) => fetch([baseUrl, todoPath].join('/'), {
+  const createTodo = (newtodo) => fetch([baseUrl, todoPath].join('/'), {
     method: 'POST',
     body: JSON.stringify(newtodo),
     headers: {
@@ -31,7 +30,7 @@ export const Api = (() => {
     updateTodo,
     getTodos,
     deleteTodo,
-    addTodo
+    createTodo
   }; // <---------- Api
 })();
 

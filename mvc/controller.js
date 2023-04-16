@@ -4,13 +4,13 @@ import { View } from "./view.js";
 export const Controller = ((model, view) => {
   const state = new model.State();
 
-  const addTodo = () => {
+  const createTodo = () => {
     const inputbox = document.querySelector(view.domstr.inputbox);
     inputbox.addEventListener('keyup', event => {
       if (event.code === 'Enter' && event.target.value.trim() !== '') {
         const newtodo = new model.Todo(event.target.value);
         
-        model.addTodo(newtodo).then(todo => {
+        model.createTodo(newtodo).then(todo => {
           state.todolist = [todo, ...state.todolist];
         });
         event.target.value = '';
@@ -21,28 +21,18 @@ export const Controller = ((model, view) => {
   const updateTodo = () => {
     const container = document.querySelector(view.domstr.container);
 
-    container.addEventListener('click', event => {
-        if (event.target.className === 'pendingTask') {
-            event.target.innerHTML =  `<span class="completedTask" id="${event.target.id}">${event.target.innerHTML}</span>`;
-            state.todolist = state.todolist.filter((todo) => {
-                if(+todo.id === +event.target.id) {
-                    todo.completed = true; 
-                }
-                return todo; 
-            })
-            model.updateTodo(event.target.id, true); 
-        } else if (event.target.className === 'completedTask') {
-            event.target.innerHTML = `<span class="pendingTask" id="${event.target.id}">${event.target.innerHTML}</span>`;
-            state.todolist = state.todolist.filter(todo => {
-                if (+todo.id === +event.target.id) {
-                    todo.completed = false;
-                }
-                return todo; 
-            })
-            model.updateTodo(event.target.id, false); 
-            }
-        });
-  }
+    container.addEventListener('click', (event) => {
+      const span = event.target.closest('SPAN');
+      if (span) {
+        const li = span.parentNode;
+        const todoId = span.classList[0];
+        const isComplete = span.classList.contains('complete');
+        model.updateTodo(todoId);
+        span.classList.toggle('complete', !isComplete);
+      }
+    });
+  };
+  
 
   const deleteTodo = () => {
     const container = document.querySelector(view.domstr.container);
@@ -67,7 +57,7 @@ export const Controller = ((model, view) => {
   const bootstrap = () => {
     init();
     deleteTodo();
-    addTodo();
+    createTodo();
     updateTodo();
   }
 

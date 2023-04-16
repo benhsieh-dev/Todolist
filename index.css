@@ -166,10 +166,6 @@ ul li span {
   overflow: hidden;
 }
 
-.completedTask {
+.complete {
   text-decoration: line-through;
-}
-
-.pendingTask {
-  text-decoration: none;
 }

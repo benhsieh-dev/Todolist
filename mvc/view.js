@@ -8,28 +8,20 @@ export const View = (() => {
   const render = (ele, tmp) => {
     ele.innerHTML = tmp;
   }
+
   const createTmp = (arr) => {
-    let tmp = '';
-    arr.forEach(ele => {
-        if (ele.completed === true) {
-             tmp += `
-                <li>
-                    <span class="completedTask" id="${ele.id}">${ele.id}-${ele.title}</span>
-                    <button id="${ele.id}" class="deletebtn">X</button>
-                </li>
-          `; 
-        } else {
-            tmp += `
-                <li>
-                    <span class="pendingTask" id="${ele.id}">${ele.id}-${ele.title}</span>
-                    <button id="${ele.id}" class="deletebtn">X</button>
-                </li>
-                
-            `;
-        }
-    });
+    let tmp = arr
+      .map((ele) => {
+        return `
+        <li>
+          <span class="${ele.id}">${ele.id}-${ele.title}</span>
+          <button id="${ele.id}" class="deletebtn">X</button>
+        </li>
+      `;
+      })
+      .join('');
     return tmp;
-  }
+  };
 
   return {
     domstr,
