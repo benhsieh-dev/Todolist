@@ -1,19 +1,48 @@
 {
   "todos": [
     {
-      "title": "JavaScript",
-      "completed": false,
-      "userId": 8,
-      "id": 1
-    },
-    {
-      "title": "HTML",
+      "title": "CSS",
       "completed": false,
       "userId": 8,
       "id": 2
     },
     {
+      "title": "JavaScript",
+      "completed": false,
+      "userId": 8,
       "id": 3
+    },
+    {
+      "title": "HTML",
+      "completed": false,
+      "userId": 8,
+      "id": 4
+    },
+    {
+      "title": "Java",
+      "completed": true,
+      "userId": 8,
+      "id": 6
+    },
+    {
+      "title": "SpringBoot",
+      "completed": true,
+      "userId": 8,
+      "id": 7
+    },
+    {
+      "title": "Design Patterns",
+      "completed": false,
+      "userId": 8,
+      "id": 8
+    }
+  ],
+  "completed": [
+    {
+      "title": "Java",
+      "completed": true,
+      "userId": 8,
+      "id": 7
     }
   ]
 }

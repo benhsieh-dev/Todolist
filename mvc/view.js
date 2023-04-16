@@ -5,8 +5,19 @@ export const View = (() => {
     deletebtn: '.deletebtn',
     inputbox: '.todolist__input'
   };
+
+  const domstr2 = {
+    container: '#completedlist_container',
+    deletebtn: '.deletebtn',
+    inputbox: '.completedlist__input'
+  };
+
   const render = (ele, tmp) => {
     ele.innerHTML = tmp;
+  }
+
+  const render2 = (ele2, tmp2) => {
+    ele2.innerHTML = tmp2;
   }
 
   const createTmp = (arr) => {
@@ -23,10 +34,27 @@ export const View = (() => {
     return tmp;
   };
 
+  const pendingTmp = (arr) => {
+    let tmp2 = arr
+      .map((ele) => {
+        return `
+        <li>
+          <span class="${ele.id}">${ele.id}-${ele.title}</span>
+          <button id="${ele.id}" class="deletebtn">X</button>
+        </li>
+      `;
+      })
+      .join('');
+    return tmp2;
+  };
+
   return {
     domstr,
+    domstr2,
     render,
-    createTmp
+    render2,
+    createTmp,
+    pendingTmp
   };
 })();
 

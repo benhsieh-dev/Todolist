@@ -18,6 +18,21 @@ export const Controller = ((model, view) => {
     });
   }
 
+    const createTodo2 = () => {
+    const inputbox = document.querySelector(view.domstr2.inputbox);
+    inputbox.addEventListener('keyup', event => {
+      if (event.code === 'Enter' && event.target.value.trim() !== '') {
+        const newcomplete = new model.Completed(event.target.value);
+        
+        model.createTodo2(newcomplete).then(complete => {
+          state.completedlist = [complete, ...state.completedlist];
+        });
+        event.target.value = '';
+      }
+    });
+  }
+
+
   const updateTodo = () => {
     const container = document.querySelector(view.domstr.container);
 
@@ -32,7 +47,7 @@ export const Controller = ((model, view) => {
       }
     });
   };
-  
+
 
   const deleteTodo = () => {
     const container = document.querySelector(view.domstr.container);
@@ -58,6 +73,7 @@ export const Controller = ((model, view) => {
     init();
     deleteTodo();
     createTodo();
+    createTodo2();
     updateTodo();
   }
 

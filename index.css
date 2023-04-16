@@ -87,13 +87,15 @@ body {
 }
 
 .content {
-  width: 100%;
+  /* width: 100%; */
+  width: 40%;
   height: 100%;
   /* padding-top: var(--height-header); */
   background-color: blanchedalmond;
 
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  justify-content: space-between;
   align-items: center;
 }
 
