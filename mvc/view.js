@@ -27,6 +27,7 @@ export const View = (() => {
         <li>
           <span class="${ele.id}">${ele.id}-${ele.title}</span>
           <button id="${ele.id}" class="deletebtn">X</button>
+          <button id="${ele.id}" class="right-arrow-btn">&#8594</button>
         </li>
       `;
       })
@@ -39,6 +40,7 @@ export const View = (() => {
       .map((ele2) => {
         return `
         <li>
+          <button id="${ele2.id}" class="right-arrow-btn">&#8592</button>
           <span class="${ele2.id}">${ele2.id}-${ele2.title}</span>
           <button id="${ele2.id}" class="deletebtn2">X</button>
         </li>
