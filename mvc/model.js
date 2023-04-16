@@ -47,13 +47,13 @@ export const Model = ((api, view) => {
     }
   }
 
-  const {getTodos, deleteTodo, createTodo, createTodo2, updateTodo} = api;
+  const {getTodos, deleteTodo, createTodo, createComplete, updateTodo} = api;
 
   return {
     getTodos,
     deleteTodo,
     createTodo,
-    createTodo2,
+    createComplete,
     updateTodo,
     Todo,
     Completed,

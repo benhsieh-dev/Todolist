@@ -18,13 +18,13 @@ export const Controller = ((model, view) => {
     });
   }
 
-    const createTodo2 = () => {
+    const createComplete = () => {
     const inputbox = document.querySelector(view.domstr2.inputbox);
     inputbox.addEventListener('keyup', event => {
       if (event.code === 'Enter' && event.target.value.trim() !== '') {
         const newcomplete = new model.Completed(event.target.value);
         
-        model.createTodo2(newcomplete).then(complete => {
+        model.createComplete(newcomplete).then(complete => {
           state.completedlist = [complete, ...state.completedlist];
         });
         event.target.value = '';
@@ -73,7 +73,7 @@ export const Controller = ((model, view) => {
     init();
     deleteTodo();
     createTodo();
-    createTodo2();
+    createComplete();
     updateTodo();
   }
 

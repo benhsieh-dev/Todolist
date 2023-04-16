@@ -29,7 +29,7 @@ export const Api = (() => {
   })
     .then((response) => response.json());
 
-  const createTodo2 = (newtodo) => fetch([baseUrl, todoPath].join('/'), {
+  const createComplete = (newtodo) => fetch([baseUrl, todoPath].join('/'), {
     method: 'POST',
     body: JSON.stringify(newtodo),
     headers: {
@@ -54,7 +54,7 @@ export const Api = (() => {
     getTodos,
     deleteTodo,
     createTodo,
-    createTodo2
+    createComplete
   }; // <---------- Api
 })();
 

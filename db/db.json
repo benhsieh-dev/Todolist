@@ -19,22 +19,34 @@
       "id": 4
     },
     {
+      "title": "Design Patterns",
+      "completed": false,
+      "userId": 8,
+      "id": 8
+    },
+    {
+      "title": "React ",
+      "completed": true,
+      "userId": 8,
+      "id": 9
+    },
+    {
+      "title": "Angular",
+      "completed": true,
+      "userId": 8,
+      "id": 10
+    },
+    {
       "title": "Java",
       "completed": true,
       "userId": 8,
-      "id": 6
+      "id": 11
     },
     {
       "title": "SpringBoot",
       "completed": true,
       "userId": 8,
-      "id": 7
-    },
-    {
-      "title": "Design Patterns",
-      "completed": false,
-      "userId": 8,
-      "id": 8
+      "id": 12
     }
   ],
   "completed": [
