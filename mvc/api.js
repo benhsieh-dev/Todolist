@@ -16,8 +16,12 @@
 export const Api = (() => {
   const baseUrl = 'http://localhost:3000';
   const todoPath = 'todos';
+  const completedPath = 'completed';
 
   const getTodos = () => fetch([baseUrl, todoPath].join('/'))
+    .then((response) => response.json());
+
+  const getCompletes = () => fetch([baseUrl, completedPath].join('/'))
     .then((response) => response.json());
 
   const createTodo = (newtodo) => fetch([baseUrl, todoPath].join('/'), {
@@ -49,10 +53,16 @@ export const Api = (() => {
     method: 'DELETE',
   });
 
+  const deleteComplete = (id) => fetch([baseUrl, completedPath, id].join('/'), {
+    method: 'DELETE',
+  });
+
   return {
     updateTodo,
     getTodos,
+    getCompletes,
     deleteTodo,
+    deleteComplete,
     createTodo,
     createComplete
   }; // <---------- Api

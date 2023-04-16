@@ -8,7 +8,7 @@ export const View = (() => {
 
   const domstr2 = {
     container: '#completedlist_container',
-    deletebtn: '.deletebtn',
+    deletebtn: '.deletebtn2',
     inputbox: '.completedlist__input'
   };
 
@@ -36,11 +36,11 @@ export const View = (() => {
 
   const pendingTmp = (arr) => {
     let tmp2 = arr
-      .map((ele) => {
+      .map((ele2) => {
         return `
         <li>
-          <span class="${ele.id}">${ele.id}-${ele.title}</span>
-          <button id="${ele.id}" class="deletebtn">X</button>
+          <span class="${ele2.id}">${ele2.id}-${ele2.title}</span>
+          <button id="${ele2.id}" class="deletebtn2">X</button>
         </li>
       `;
       })

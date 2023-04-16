@@ -26,7 +26,7 @@ export const Model = ((api, view) => {
       this.#completedlist = newcompletes;
 
       const container = document.querySelector(view.domstr2.container);
-      const tmp = view.createTmp(this.#completedlist);
+      const tmp = view.pendingTmp(this.#completedlist);
       view.render(container, tmp);
     }
   }
@@ -47,11 +47,13 @@ export const Model = ((api, view) => {
     }
   }
 
-  const {getTodos, deleteTodo, createTodo, createComplete, updateTodo} = api;
+  const {getTodos, getCompletes, deleteTodo, deleteComplete, createTodo, createComplete, updateTodo} = api;
 
   return {
     getTodos,
+    getCompletes,
     deleteTodo,
+    deleteComplete, 
     createTodo,
     createComplete,
     updateTodo,

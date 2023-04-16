@@ -18,7 +18,7 @@ export const Controller = ((model, view) => {
     });
   }
 
-    const createComplete = () => {
+  const createComplete = () => {
     const inputbox = document.querySelector(view.domstr2.inputbox);
     inputbox.addEventListener('keyup', event => {
       if (event.code === 'Enter' && event.target.value.trim() !== '') {
@@ -57,8 +57,22 @@ export const Controller = ((model, view) => {
         state.todolist = state.todolist.filter((todo) => {
           return +todo.id !== +event.target.id;
         });
-        // console.log(event.target.id);
+        console.log(event.target.id);
         model.deleteTodo(event.target.id);
+      }
+    });
+  }
+
+    const deleteComplete = () => {
+    const container = document.querySelector(view.domstr2.container);
+
+    container.addEventListener('click', event => {
+      if (event.target.className === 'deletebtn2') {
+        state.completedlist = state.completedlist.filter((complete) => {
+          return +complete.id !== +event.target.id;
+        });
+        console.log(event.target.id);
+        model.deleteComplete(event.target.id);
       }
     });
   }
@@ -66,12 +80,20 @@ export const Controller = ((model, view) => {
   const init = () => {
     model.getTodos().then(todos => {
       state.todolist = todos.reverse();
-    });
+    })
+  }
+
+  const init2 = () => {
+    model.getCompletes().then(completes => {
+      state.completedlist = completes.reverse();
+    })
   }
 
   const bootstrap = () => {
     init();
+    init2();
     deleteTodo();
+    deleteComplete();
     createTodo();
     createComplete();
     updateTodo();
