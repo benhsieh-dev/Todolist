@@ -30,10 +30,12 @@ export const View = (() => {
         return `
         <li atilsis="${ele.id}">
           <span class="${ele.id}">${ele.id}-${ele.title}</span>
-          <input type='text' class='inpuvaluels' >
+          <input type='text' class='inpuvaluels'>
           <i id="${ele.id}" class="fa fa-pencil todo-pencil"></i>
           <button id="${ele.id}" class="deletebtn">X</i></button>
-          <button id="${ele.id}" class="right-arrow-btn">&#8594</button>
+          <button id="${ele.id}" class="right-arrow-btn">
+            &#8594
+          </button>
         </li>
       `;
       })
