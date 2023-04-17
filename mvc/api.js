@@ -33,7 +33,7 @@ export const Api = (() => {
   })
     .then((response) => response.json());
 
-  const createComplete = (newtodo) => fetch([baseUrl, todoPath].join('/'), {
+  const createComplete = (newtodo) => fetch([baseUrl, completedPath].join('/'), {
     method: 'POST',
     body: JSON.stringify(newtodo),
     headers: {

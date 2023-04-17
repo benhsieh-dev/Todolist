@@ -29,6 +29,12 @@
       "completed": false,
       "userId": 8,
       "id": 9
+    },
+    {
+      "title": "Spring Boot",
+      "completed": false,
+      "userId": 8,
+      "id": 10
     }
   ],
   "completed": [
@@ -37,6 +43,18 @@
       "completed": true,
       "userId": 8,
       "id": 7
+    },
+    {
+      "title": "",
+      "completed": true,
+      "userId": 8,
+      "id": 8
+    },
+    {
+      "title": "React",
+      "completed": true,
+      "userId": 8,
+      "id": 9
     }
   ]
 }

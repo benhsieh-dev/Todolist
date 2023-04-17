@@ -32,6 +32,20 @@ export const Controller = ((model, view) => {
     });
   }
 
+  const moveTodo = () => {
+    const toDoContainer = document.querySelector(view.domstr.container);
+    // const completedContainer = document.querySelector(view.domstr2.container);
+    
+    toDoContainer.addEventListener('click', event => {
+      if (event.target.className === 'right-arrow-btn') {
+         const newcomplete = new model.Completed(event.target.value);
+         model.createComplete(newcomplete).then(complete => {
+          state.completedlist = [complete,...state.completedlist];
+          state.todolist = state.todolist.filter((todo) =>  +todo.id !== +event.target.id);
+        })      
+    }});
+  }
+
 
   const updateTodo = () => {
     const container = document.querySelector(view.domstr.container);
@@ -57,13 +71,14 @@ export const Controller = ((model, view) => {
         state.todolist = state.todolist.filter((todo) => {
           return +todo.id !== +event.target.id;
         });
-        console.log(event.target.id);
+        // console.log(event.target.id);
         model.deleteTodo(event.target.id);
       }
     });
   }
 
-    const deleteComplete = () => {
+
+  const deleteComplete = () => {
     const container = document.querySelector(view.domstr2.container);
 
     container.addEventListener('click', event => {
@@ -97,6 +112,7 @@ export const Controller = ((model, view) => {
     createTodo();
     createComplete();
     updateTodo();
+    moveTodo();
   }
 
   return { bootstrap };
