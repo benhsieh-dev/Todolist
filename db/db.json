@@ -10,37 +10,31 @@
       "title": "JavaScript",
       "completed": false,
       "userId": 8,
-      "id": 3
+      "id": 4
     },
     {
       "title": "HTML",
       "completed": false,
       "userId": 8,
-      "id": 4
+      "id": 5
     },
     {
-      "title": "Design Patterns",
+      "title": "CSS",
       "completed": false,
       "userId": 8,
-      "id": 8
-    },
-    {
-      "title": "Angular",
-      "completed": false,
-      "userId": 8,
-      "id": 9
-    },
-    {
-      "title": "Spring Boot",
-      "completed": false,
-      "userId": 8,
-      "id": 10
+      "id": 6
     },
     {
       "title": "",
       "completed": false,
       "userId": 8,
-      "id": 11
+      "id": 7
+    },
+    {
+      "title": "",
+      "completed": false,
+      "userId": 8,
+      "id": 8
     }
   ],
   "completed": [
@@ -51,16 +45,16 @@
       "id": 7
     },
     {
+      "title": "Spring Boot",
+      "completed": true,
+      "userId": 8,
+      "id": 8
+    },
+    {
       "title": "React",
       "completed": true,
       "userId": 8,
       "id": 9
-    },
-    {
-      "title": "Spring Boot",
-      "completed": true,
-      "userId": 8,
-      "id": 10
     }
   ]
 }

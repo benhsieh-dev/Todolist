@@ -3,13 +3,17 @@ export const View = (() => {
   const domstr = {
     container: '#todolist_container',
     deletebtn: '.deletebtn',
-    inputbox: '.todolist__input'
+    inputbox: '.todolist__input',
+    rightArrowBtn: 'right-arrow-btn',
+    todoPencil: 'fa fa-pencil todo-pencil'
   };
 
   const domstr2 = {
     container: '#completedlist_container',
     deletebtn: '.deletebtn2',
-    inputbox: '.completedlist__input'
+    inputbox: '.completedlist__input',
+    leftArrowBtn: 'left-arrow-btn',
+    completePencil: 'complete-pencil'
   };
 
   const render = (ele, tmp) => {
@@ -27,7 +31,7 @@ export const View = (() => {
         <li>
           <span class="${ele.id}">${ele.id}-${ele.title}</span>
           <i id="${ele.id}" class="fa fa-pencil todo-pencil"></i>
-          <button id="${ele.id}" class="deletebtn">X</button>
+          <button id="${ele.id}" class="deletebtn"><i class="fa-solid fa-trash-can"></i></button>
           <button id="${ele.id}" class="right-arrow-btn">&#8594</button>
         </li>
       `;

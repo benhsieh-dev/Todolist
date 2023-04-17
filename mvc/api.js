@@ -58,6 +58,16 @@ export const Api = (() => {
         completed: status, 
     })
   });
+
+   const editTodo = (id, status) => fetch([baseUrl, todoPath, id].join('/'), {
+    method: 'PUT',
+    headers: {'content-type': 'application/json'},
+    body: JSON.stringify({
+        completed: status, 
+    })
+  });
+
+
   const deleteTodo = (id) => fetch([baseUrl, todoPath, id].join('/'), {
     method: 'DELETE',
   });
@@ -74,7 +84,8 @@ export const Api = (() => {
     deleteComplete,
     createTodo,
     createComplete,
-    moveTodo
+    moveTodo,
+    editTodo
   }; // <---------- Api
 })();
 

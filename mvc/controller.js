@@ -38,6 +38,7 @@ export const Controller = ((model, view) => {
     
     toDoContainer.addEventListener('click', event => {
       if (event.target.className === 'right-arrow-btn') {
+        console.log(event.target.value);
          const newcomplete = new model.Completed(event.target.value);
          model.createComplete(newcomplete).then(complete => {
           state.completedlist = [complete,...state.completedlist];
@@ -51,6 +52,7 @@ export const Controller = ((model, view) => {
     
     completedContainer.addEventListener('click', event => {
       if (event.target.className === 'left-arrow-btn') {
+         console.log(event.target.value);
          const newtodo = new model.Todo(event.target.value);
          model.createTodo(newtodo).then(todo => {
           state.todolist = [todo,...state.todolist];
@@ -70,6 +72,7 @@ export const Controller = ((model, view) => {
         const isComplete = span.classList.contains('complete');
         model.updateTodo(todoId);
         span.classList.toggle('complete', !isComplete);
+        // console.log('span');
       }
     });
   };
@@ -85,6 +88,22 @@ export const Controller = ((model, view) => {
         });
         // console.log(event.target.id);
         model.deleteTodo(event.target.id);
+      }
+    });
+  }
+
+    const editTodo = () => {
+    const container = document.querySelector(view.domstr.container);
+
+    container.addEventListener('click', (event) => {
+       if (event.target.className === 'fa fa-pencil todo-pencil'){
+        console.log('editable pencil!');
+        const span = event.target.closest('SPAN');
+        const input = document.createElement('input');
+        input.type = 'text';
+        span.value = span.textContent; 
+        // const isComplete = span.classList.contains('complete');
+        model.updateTodo(todoId);
       }
     });
   }
@@ -126,6 +145,7 @@ export const Controller = ((model, view) => {
     updateTodo();
     moveTodo();
     moveComplete(); 
+    editTodo(); 
   }
 
   return { bootstrap };
