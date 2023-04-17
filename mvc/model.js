@@ -47,7 +47,7 @@ export const Model = ((api, view) => {
     }
   }
 
-  const {getTodos, getCompletes, deleteTodo, deleteComplete, createTodo, createComplete, updateTodo} = api;
+  const {getTodos, getCompletes, deleteTodo, deleteComplete, createTodo, createComplete, updateTodo, moveTodo} = api;
 
   return {
     getTodos,
@@ -57,6 +57,7 @@ export const Model = ((api, view) => {
     createTodo,
     createComplete,
     updateTodo,
+    moveTodo,
     Todo,
     Completed,
     State

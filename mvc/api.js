@@ -42,6 +42,15 @@ export const Api = (() => {
   })
     .then((response) => response.json());
 
+  const moveTodo = (newComplete) => fetch([baseUrl, completedPath].join('/'), {
+    method: 'POST',
+    body: JSON.stringify(newComplete),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
+    .then((response) => response.json());
+
   const updateTodo = (id, status) => fetch([baseUrl, todoPath, id].join('/'), {
     method: 'PUT',
     headers: {'content-type': 'application/json'},
@@ -64,7 +73,8 @@ export const Api = (() => {
     deleteTodo,
     deleteComplete,
     createTodo,
-    createComplete
+    createComplete,
+    moveTodo
   }; // <---------- Api
 })();
 

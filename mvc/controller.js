@@ -46,6 +46,18 @@ export const Controller = ((model, view) => {
     }});
   }
 
+    const moveComplete = () => {
+    const completedContainer = document.querySelector(view.domstr2.container);
+    
+    completedContainer.addEventListener('click', event => {
+      if (event.target.className === 'left-arrow-btn') {
+         const newtodo = new model.Todo(event.target.value);
+         model.createTodo(newtodo).then(todo => {
+          state.todolist = [todo,...state.todolist];
+          state.completedlist = state.completedlist.filter((complete) =>  +complete.id !== +event.target.id);
+        })      
+    }});
+  }
 
   const updateTodo = () => {
     const container = document.querySelector(view.domstr.container);
@@ -113,6 +125,7 @@ export const Controller = ((model, view) => {
     createComplete();
     updateTodo();
     moveTodo();
+    moveComplete(); 
   }
 
   return { bootstrap };
