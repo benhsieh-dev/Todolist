@@ -19,22 +19,9 @@
       "id": 5
     },
     {
-      "title": "CSS",
-      "completed": false,
-      "userId": 8,
+      "completed": true,
+      "title": "Angular JS",
       "id": 6
-    },
-    {
-      "title": "",
-      "completed": false,
-      "userId": 8,
-      "id": 7
-    },
-    {
-      "title": "",
-      "completed": false,
-      "userId": 8,
-      "id": 8
     }
   ],
   "completed": [
@@ -51,9 +38,8 @@
       "id": 8
     },
     {
-      "title": "React",
       "completed": true,
-      "userId": 8,
+      "title": "React JS",
       "id": 9
     }
   ]

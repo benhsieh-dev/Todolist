@@ -39,10 +39,17 @@ export const Controller = ((model, view) => {
     toDoContainer.addEventListener('click', event => {
       if (event.target.className === 'right-arrow-btn') {
         console.log(event.target.value);
-         const newcomplete = new model.Completed(event.target.value);
-         model.createComplete(newcomplete).then(complete => {
+        /* const newcomplete = new model.Completed(event.target.value);
+         console.log(newcomplete);*/
+         const li = event.target.closest('li');
+         const span = event.target.closest('li').querySelector('span');
+         const makeils =  span.innerHTML.split('-');
+         const newcomplete = { completed: true, title: makeils[1] };
+
+         model.moveTodo(newcomplete).then(complete => {
           state.completedlist = [complete,...state.completedlist];
           state.todolist = state.todolist.filter((todo) =>  +todo.id !== +event.target.id);
+          model.deleteTodo(event.target.id);
         })      
     }});
   }
@@ -53,10 +60,15 @@ export const Controller = ((model, view) => {
     completedContainer.addEventListener('click', event => {
       if (event.target.className === 'left-arrow-btn') {
          console.log(event.target.value);
-         const newtodo = new model.Todo(event.target.value);
+         const li = event.target.closest('li');
+         const span = event.target.closest('li').querySelector('span');
+         const makeils =  span.innerHTML.split('-');
+         const newtodo = { completed: true, title: makeils[1] };
+
          model.createTodo(newtodo).then(todo => {
           state.todolist = [todo,...state.todolist];
           state.completedlist = state.completedlist.filter((complete) =>  +complete.id !== +event.target.id);
+           model.deleteComplete(event.target.id);
         })      
     }});
   }
@@ -95,15 +107,31 @@ export const Controller = ((model, view) => {
     const editTodo = () => {
     const container = document.querySelector(view.domstr.container);
 
-    container.addEventListener('click', (event) => {
+   container.addEventListener('click', (event) => {
+    console.log("adsad");
        if (event.target.className === 'fa fa-pencil todo-pencil'){
         console.log('editable pencil!');
-        const span = event.target.closest('SPAN');
-        const input = document.createElement('input');
-        input.type = 'text';
-        span.value = span.textContent; 
+        const li = event.target.closest('li');
+        const span = event.target.closest('li').querySelector('span');
+        const text = event.target.closest('li').querySelector('.inpuvaluels');
+        if(span.style.display=='none'){
+          console.log('b');
+          span.style.display = 'block';
+          text.style.display = 'none';
+          span.innerHTML = li.getAttribute('atilsis')+'-'+text.value;
+          model.updateTodo(li.getAttribute('atilsis'),false,text.value);
+        }else{
+          span.style.display = 'none';
+          text.style.display = 'block';
+          
+          const makeils =  span.innerHTML.split('-');
+          text.value=makeils[1];
+          console.log(makeils);
+          console.log('a');
+        }
+        
         // const isComplete = span.classList.contains('complete');
-        model.updateTodo(todoId);
+       // model.updateTodo(todoId);
       }
     });
   }
@@ -113,6 +141,28 @@ export const Controller = ((model, view) => {
     const container = document.querySelector(view.domstr2.container);
 
     container.addEventListener('click', event => {
+      if (event.target.className === 'fa fa-pencil complete-pencil'){
+        console.log('sss');
+        console.log('editable pencil!');
+        const li = event.target.closest('li');
+        const span = event.target.closest('li').querySelector('span');
+        const text = event.target.closest('li').querySelector('.inpuvaluels');
+        if(span.style.display=='none'){
+          console.log('b');
+          span.style.display = 'block';
+          text.style.display = 'none';
+          span.innerHTML = li.getAttribute('atilsis')+'-'+text.value;
+          model.updateComplete(li.getAttribute('atilsis'),true,text.value);
+        }else{
+          span.style.display = 'none';
+          text.style.display = 'block';
+          
+          const makeils =  span.innerHTML.split('-');
+          text.value=makeils[1];
+          console.log(makeils);
+          console.log('a');
+        }
+      }
       if (event.target.className === 'deletebtn2') {
         state.completedlist = state.completedlist.filter((complete) => {
           return +complete.id !== +event.target.id;
@@ -150,66 +200,3 @@ export const Controller = ((model, view) => {
 
   return { bootstrap };
 })(Model, View);
-
-
-
-
-
-
-
-// const Controller = ((view, model) => {
-//     const state = new model.State();
-//     const init = () => {
-//         model.getTodos().then((todos) => {
-//             todos.reverse();
-//             state.todos = todos;
-//         });
-//     };
-
-//     const handleSubmit = () => {
-//         view.submitBtnEl.addEventListener("click", (event) => {
-//             /* 
-//                 1. read the value from input
-//                 2. post request
-//                 3. update view
-//             */
-//             const inputValue = view.inputEl.value;
-//             model.createTodo({ content: inputValue }).then((data) => {
-//                 state.todos = [data, ...state.todos];
-//                 view.clearInput();
-//             });
-//         });
-//     };
-
-//     const handleDelete = () => {
-//         //event bubbling
-//         /* 
-//             1. get id
-//             2. make delete request
-//             3. update view, remove
-//         */
-//         view.todolistEl.addEventListener("click", (event) => {
-//             if (event.target.className === "delete-btn") {
-//                 const id = event.target.id;
-//                 console.log("id", typeof id);
-//                 model.deleteTodo(+id).then((data) => {
-//                     state.todos = state.todos.filter((todo) => todo.id !== +id);
-//                 });
-//             }
-//         });
-//     };
-
-//     const bootstrap = () => {
-//         init();
-//         handleSubmit();
-//         handleDelete();
-//         state.subscribe(() => {
-//             view.renderTodos(state.todos);
-//         });
-//     };
-//     return {
-//         bootstrap,
-//     };
-// })(View, Model); //ViewModel
-
-// Controller.bootstrap();

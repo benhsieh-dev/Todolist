@@ -51,13 +51,23 @@ export const Api = (() => {
   })
     .then((response) => response.json());
 
-  const updateTodo = (id, status) => fetch([baseUrl, todoPath, id].join('/'), {
+  const updateTodo = (id, status,title) => fetch([baseUrl, todoPath, id].join('/'), {
     method: 'PUT',
     headers: {'content-type': 'application/json'},
     body: JSON.stringify({
-        completed: status, 
+        completed: status,
+        title: title, 
     })
   });
+  const updateComplete = (id, status,title) => fetch([baseUrl, completedPath, id].join('/'), {
+    method: 'PUT',
+    headers: {'content-type': 'application/json'},
+    body: JSON.stringify({
+        completed: status,
+        title: title, 
+    })
+  });
+  
 
    const editTodo = (id, status) => fetch([baseUrl, todoPath, id].join('/'), {
     method: 'PUT',
@@ -78,6 +88,7 @@ export const Api = (() => {
 
   return {
     updateTodo,
+    updateComplete,
     getTodos,
     getCompletes,
     deleteTodo,

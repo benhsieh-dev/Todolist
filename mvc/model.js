@@ -47,7 +47,7 @@ export const Model = ((api, view) => {
     }
   }
 
-  const {getTodos, getCompletes, deleteTodo, deleteComplete, createTodo, createComplete, updateTodo, moveTodo, editTodo} = api;
+  const {getTodos, getCompletes, deleteTodo, deleteComplete, createTodo, createComplete, updateTodo,updateComplete, moveTodo, editTodo} = api;
 
   return {
     getTodos,
@@ -57,6 +57,7 @@ export const Model = ((api, view) => {
     createTodo,
     createComplete,
     updateTodo,
+    updateComplete,
     moveTodo,
     editTodo,
     Todo,
@@ -66,51 +67,3 @@ export const Model = ((api, view) => {
 })(Api, View);
 
 
-
-
-
-
-
-// const Model = (() => {
-//     class State {
-//         #todos; //private field
-//         #onChange; //function, will be called when setter function todos is called
-//         constructor() {
-//             this.#todos = [];
-//         }
-//         get todos() {
-//             return this.#todos;
-//         }
-//         set todos(newTodos) {
-//             // reassign value
-//             console.log("setter function");
-//             this.#todos = newTodos;
-//             this.#onChange?.(); // rendering
-//         }
-
-//         subscribe(callback) {
-//             //subscribe to the change of the state todos
-//             this.#onChange = callback;
-//         }
-//     }
-//     const { getTodos, createTodo, deleteTodo } = APIs;
-//     return {
-//         State,
-//         getTodos,
-//         createTodo,
-//         deleteTodo,
-//     };
-// })();
-/* 
-    todos = [
-        {
-            id:1,
-            content:"eat lunch"
-        },
-        {
-            id:2,
-            content:"eat breakfast"
-        }
-    ]
-
-*/

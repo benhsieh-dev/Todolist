@@ -28,10 +28,11 @@ export const View = (() => {
     let tmp = arr
       .map((ele) => {
         return `
-        <li>
+        <li atilsis="${ele.id}">
           <span class="${ele.id}">${ele.id}-${ele.title}</span>
+          <input type='text' class='inpuvaluels' >
           <i id="${ele.id}" class="fa fa-pencil todo-pencil"></i>
-          <button id="${ele.id}" class="deletebtn"><i class="fa-solid fa-trash-can"></i></button>
+          <button id="${ele.id}" class="deletebtn">X</button>
           <button id="${ele.id}" class="right-arrow-btn">&#8594</button>
         </li>
       `;
@@ -44,9 +45,10 @@ export const View = (() => {
     let tmp2 = arr
       .map((ele2) => {
         return `
-        <li>
+        <li atilsis="${ele2.id}">
           <button id="${ele2.id}" class="left-arrow-btn">&#8592</button>
           <span class="${ele2.id}">${ele2.id}-${ele2.title}</span>
+          <input type='text' class='inpuvaluels' >
           <i id="${ele2.id}" class="fa fa-pencil complete-pencil"></i>
           <button id="${ele2.id}" class="deletebtn2">X</button>
         </li>
@@ -65,32 +67,3 @@ export const View = (() => {
     pendingTmp
   };
 })();
-
-
-
-
-
-
-// const View = (() => {
-//     const todolistEl = document.querySelector(".todo-list");
-//     const submitBtnEl = document.querySelector(".submit-btn");
-//     const inputEl = document.querySelector(".input");
-
-//     const renderTodos = (todos) => {
-//         let todosTemplate = "";
-//         todos.forEach((todo) => {
-//             const liTemplate = `<li><span>${todo.content}</span><button class="delete-btn" id="${todo.id}">delete</button></li>`;
-//             todosTemplate += liTemplate;
-//         });
-//         if (todos.length === 0) {
-//             todosTemplate = "<h4>no task to display!</h4>";
-//         }
-//         todolistEl.innerHTML = todosTemplate;
-//     };
-
-//     const clearInput = () => {
-//         inputEl.value = "";
-//     };
-
-//     return { renderTodos, submitBtnEl, inputEl, clearInput, todolistEl };
-// })();
