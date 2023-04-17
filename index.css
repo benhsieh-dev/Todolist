@@ -88,15 +88,17 @@ body {
 
 .content {
   /* width: 100%; */
-  width: 40%;
+  width: 70%;
   height: 100%;
   /* padding-top: var(--height-header); */
-  background-color: blanchedalmond;
+  /* background-color: blanchedalmond; */
 
   display: flex;
   /* justify-content: center; */
   justify-content: space-between;
   align-items: center;
+  margin-left: 25%; 
+  padding-right: 30%; 
 }
 
 .todolist {
@@ -129,9 +131,9 @@ ul li {
   padding-left: 10px;
 }
 
-.todolist__header {
+.todolist__header, .completedlist_header {
   font-size: 1.6rem;
-  text-align: center;
+  /* text-align: center; */
 }
 
 ul li {

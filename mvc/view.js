@@ -29,7 +29,7 @@ export const View = (() => {
       .map((ele) => {
         return `
         <li atilsis="${ele.id}">
-          <span class="${ele.id}">${ele.id}-${ele.title}</span>
+          <span class="${ele.id}">${ele.title}</span>
           <input type='text' class='inpuvaluels' >
           <i id="${ele.id}" class="fa fa-pencil todo-pencil"></i>
           <button id="${ele.id}" class="deletebtn">X</button>
@@ -47,7 +47,7 @@ export const View = (() => {
         return `
         <li atilsis="${ele2.id}">
           <button id="${ele2.id}" class="left-arrow-btn">&#8592</button>
-          <span class="${ele2.id}">${ele2.id}-${ele2.title}</span>
+          <span class="${ele2.id}">${ele2.title}</span>
           <input type='text' class='inpuvaluels' >
           <i id="${ele2.id}" class="fa fa-pencil complete-pencil"></i>
           <button id="${ele2.id}" class="deletebtn2">X</button>
