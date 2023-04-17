@@ -1,46 +1,37 @@
 {
   "todos": [
     {
-      "title": "CSS",
-      "completed": false,
-      "userId": 8,
-      "id": 2
-    },
-    {
       "title": "JavaScript",
       "completed": false,
       "userId": 8,
       "id": 4
     },
     {
-      "title": "HTML",
-      "completed": false,
-      "userId": 8,
+      "completed": true,
+      "title": "Java",
       "id": 5
     },
     {
       "completed": true,
-      "title": "Angular JS",
+      "title": "React JS",
       "id": 6
     }
   ],
   "completed": [
     {
-      "title": "Java",
       "completed": true,
-      "userId": 8,
-      "id": 7
+      "title": "HTML",
+      "id": 10
     },
     {
+      "completed": true,
+      "title": "CSS",
+      "id": 11
+    },
+    {
+      "completed": true,
       "title": "Spring Boot",
-      "completed": true,
-      "userId": 8,
-      "id": 8
-    },
-    {
-      "completed": true,
-      "title": "React JS",
-      "id": 9
+      "id": 12
     }
   ]
 }
