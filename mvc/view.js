@@ -26,6 +26,7 @@ export const View = (() => {
         return `
         <li>
           <span class="${ele.id}">${ele.id}-${ele.title}</span>
+          <i id="${ele.id}" class="fa fa-pencil todo-pencil"></i>
           <button id="${ele.id}" class="deletebtn">X</button>
           <button id="${ele.id}" class="right-arrow-btn">&#8594</button>
         </li>
@@ -42,6 +43,7 @@ export const View = (() => {
         <li>
           <button id="${ele2.id}" class="left-arrow-btn">&#8592</button>
           <span class="${ele2.id}">${ele2.id}-${ele2.title}</span>
+          <i id="${ele2.id}" class="fa fa-pencil complete-pencil"></i>
           <button id="${ele2.id}" class="deletebtn2">X</button>
         </li>
       `;
