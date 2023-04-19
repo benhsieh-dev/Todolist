@@ -9,6 +9,12 @@
       "completed": true,
       "title": "Angular",
       "id": 9
+    },
+    {
+      "title": "CSS",
+      "completed": false,
+      "userId": 8,
+      "id": 10
     }
   ],
   "completed": [
@@ -21,11 +27,6 @@
       "completed": true,
       "title": "Spring Boot",
       "id": 5
-    },
-    {
-      "completed": true,
-      "title": "React",
-      "id": 6
     },
     {
       "title": "React",
